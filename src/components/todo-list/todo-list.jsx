@@ -15,10 +15,13 @@ export const TodoList = () => {
 
   const toggleCheck = (id) => {
     // Fix an ability to toggle task
-    setTodos((prevTodos) => {
-      const todo = prevTodos.filter((prevTodo) => prevTodo.id === id);
-      todo.checked = true;
-    });
+    setTodos((prevTodos) =>
+      prevTodos.map((prevTodo) => {
+        return prevTodo.id === id
+          ? { ...prevTodo, checked: !prevTodo.checked }
+          : prevTodo;
+      })
+    );
   };
 
   const handleKeyUp = (e, id) => {
