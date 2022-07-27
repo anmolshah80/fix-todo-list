@@ -7,7 +7,18 @@ export const TodoForm = () => {
   const [task, setTask] = React.useState('');
 
   const handleAddTodo = () => {
-    // Fin an ability to add new task
+    // Fix an ability to add new task
+    setTodos((prevTodos) => [
+      ...prevTodos,
+      {
+        checked: true,
+        id: prevTodos.length,
+        label: task,
+      },
+    ]);
+
+    // clear the input field after a task has been added
+    setTask('');
   };
 
   const handleKeyUp = (e) => {

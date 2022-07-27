@@ -8,10 +8,17 @@ export const TodoList = () => {
 
   const handleDelete = (id) => {
     // Fix an ability to delete task
+    setTodos((prevTodos) => prevTodos.filter((prevTodo) => prevTodo.id !== id));
   };
+
+  console.log('todos: ', todos);
 
   const toggleCheck = (id) => {
     // Fix an ability to toggle task
+    setTodos((prevTodos) => {
+      const todo = prevTodos.filter((prevTodo) => prevTodo.id === id);
+      todo.checked = true;
+    });
   };
 
   const handleKeyUp = (e, id) => {
@@ -37,7 +44,9 @@ export const TodoList = () => {
           ))}
         </div>
       ) : (
-        <div className="no-todos">Looks like you&apos;re absolutely free today!</div>
+        <div className="no-todos">
+          Looks like you&apos;re absolutely free today!
+        </div>
       )}
     </div>
   );

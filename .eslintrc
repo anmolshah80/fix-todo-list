@@ -17,6 +17,7 @@
     }
   },
   "rules": {
+    "linebreak-style": [2, "windows"],
     "comma-dangle": [
       "error",
       "always-multiline"
