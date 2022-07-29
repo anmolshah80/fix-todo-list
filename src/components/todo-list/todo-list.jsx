@@ -15,12 +15,10 @@ export const TodoList = () => {
 
   const toggleCheck = (id) => {
     // Fix an ability to toggle task
-    setTodos((prevTodos) =>
-      prevTodos.map((prevTodo) => {
-        return prevTodo.id === id
-          ? { ...prevTodo, checked: !prevTodo.checked }
-          : prevTodo;
-      })
+    setTodos((oldTodos) =>
+      oldTodos.map((todo) => {
+        return todo.id === id ? { ...todo, checked: !todo.checked } : todo;
+      }),
     );
   };
 
